@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { View, Text, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
-import { onEmailChanged, onPasswordChanged, authenticate } from '../actions/AuthActions';
+import { emailChanged, passwordChanged, authenticate } from '../actions/AuthActions';
 import { Input, Button } from './common';
 import { errorTextStyle } from '../styles';
 
 class Authenticate extends Component {
   onEmailChanged(value) {
-    this.props.onEmailChanged(value);
+    this.props.emailChanged(value);
   }
 
   onPasswordChanged(value) {
-    this.props.onPasswordChanged(value);
+    this.props.passwordChanged(value);
   }
 
   signUpRequested() {
     const { email, password } = this.props;
-    this.props.authenticate( email, password );
+    this.props.authenticate( { email, password } );
   }
 
   render() {
@@ -32,11 +32,12 @@ class Authenticate extends Component {
           <View style={{ height: 100, marginTop: 15 }}>
             <Input
               label='Email'
-              value={this.props.username}
+              value={this.props.email}
               placeholder='Username@gmail.com'
               onChangeText={this.onEmailChanged.bind(this)}
             />
             <Input
+              secureTextEntry
               label='Password'
               value={this.props.password}
               placeholder='Password123'
@@ -60,4 +61,11 @@ class Authenticate extends Component {
   }
 }
 
-export default Authenticate;
+const mapStateToProps = ({ auth }) => {
+  const { email, password, error } = auth;
+  return { email, password, error };
+};
+
+export default connect(mapStateToProps, {
+  emailChanged, passwordChanged, authenticate
+})(Authenticate);

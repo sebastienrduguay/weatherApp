@@ -11,17 +11,13 @@ class ControlPanel extends Component {
         Actions.authenticate();
       break;
       case CONTROL_PANEL_LABELS[1]:
+        Actions.weatherSearch();
       break;
       case CONTROL_PANEL_LABELS[2]:
-        Actions.weatherSearch();
       break;
       case CONTROL_PANEL_LABELS[3]:
       break;
       case CONTROL_PANEL_LABELS[4]:
-      break;
-      case CONTROL_PANEL_LABELS[5]:
-      break;
-      case CONTROL_PANEL_LABELS[6]:
       break;
       default:
       return;
@@ -32,7 +28,10 @@ class ControlPanel extends Component {
     const { controlPanelItemStyle } = styles;
     return CONTROL_PANEL_LABELS.map((value, i) => {
       return (
-        <TouchableOpacity key={i} onPress={() => {this.onControlPanelSelection(value)}}>
+        <TouchableOpacity
+          key={i}
+          onPress={() => {this.onControlPanelSelection(value)}}
+        >
           <View style={controlPanelItemStyle}>
             <Text>{value}</Text>
           </View>
@@ -45,7 +44,7 @@ class ControlPanel extends Component {
     const { controlPanelContainerStyle } = styles;
     return (
       <View style={controlPanelContainerStyle}>
-      { this.renderControlPanelItems() }
+      {this.renderControlPanelItems()}
       </View>
     );
   }
@@ -62,7 +61,11 @@ const styles = {
   controlPanelContainerStyle: {
     borderTopWidth: 2,
     borderTopColor: '#068785',
-    marginTop: 30
+    marginTop: 30,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2
   }
 }
 

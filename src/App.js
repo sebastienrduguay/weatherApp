@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReduxThunk from 'redux-thunk';
 import { Provider } from 'react-redux';
+import firebase from 'firebase';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import Router from './Router';
@@ -9,6 +10,17 @@ import { View, Text } from 'react-native';
 import ControlPanel from './components/ControlPanel';
 
 class App extends Component {
+  componentWillMount() {
+    const config = {
+      apiKey: 'AIzaSyApywPhOUaNgIsx8jsaZM4sgme99voVQIo',
+      authDomain: 'weatherapp-5a548.firebaseapp.com',
+      databaseURL: 'https://weatherapp-5a548.firebaseio.com',
+      projectId: 'weatherapp-5a548',
+      storageBucket: 'weatherapp-5a548.appspot.com',
+      messagingSenderId: '556267185887'
+    };
+    firebase.initializeApp(config);
+  }
   closeControlPanel = () => {
 
   };

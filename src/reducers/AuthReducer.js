@@ -10,8 +10,8 @@ const INITIAL_STATE = {
   email: '',
   password: '',
   error: '',
-  user: ''
-}
+  user: null
+};
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -20,12 +20,12 @@ export default (state = INITIAL_STATE, action) => {
     case PASSWORD_CHANGED:
       return { ...state, password: action.payload };
     case AUTH:
-      return { ...state, error: action.payload };
+      return { ...state, error: '' };
     case AUTH_SUCCESS:
-      return { ...state, ...INITIAL_STATE };
+      return { ...state, ...INITIAL_STATE, user: action.payload };
     case AUTH_FAIL:
-      return { ...state, error: 'invalid email or password' }
+      return { ...state, error: 'Authentication Failed', password: '' }
     default:
       return state;
   }
-}
+};

@@ -1,5 +1,5 @@
 import { Actions } from 'react-native-router-flux';
-import axios from 'react-native-axios';
+import firebase from 'firebase';
 import {
   EMAIL_CHANGED,
   PASSWORD_CHANGED,
@@ -23,8 +23,30 @@ export const passwordChanged = (value) => {
 };
 
 export const authenticate = ({ email, password }) => {
-  return {
-    type: AUTH,
-    payload: { email: email, password: password }
+  console.log('authenticate', email, password );
+  return (dispatch) => {
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(user => loginUserSuccess(dispatch, user))
+    .catch(() => {
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(user => loginUserSuccess(dispatch, user))
+      .catch(() => loginUserFail(dispatch));
+    })
   };
+};
+
+const loginUserFail = (dispatch) => {
+    console.log('fail');
+    dispatch({
+      type: AUTH_FAIL
+    });
+};
+
+const loginUserSuccess = (dispatch, user) => {
+  console.log('success');
+  dispatch({
+    type: AUTH_SUCCESS, payload: user
+  });
+
+  Actions.weatherSearch();
 };
