@@ -51,7 +51,7 @@ class Authenticate extends Component {
 
           <View style={{ height: 35, paddingLeft: 15, paddingRight: 15 }}>
             <Button onPress={this.signUpRequested.bind(this)}>
-              Sign-up
+              Login
             </Button>
           </View>
 

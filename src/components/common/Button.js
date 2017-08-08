@@ -28,6 +28,7 @@ const styles = {
     backgroundColor: '#068785',
     borderRadius: 5,
     borderWidth: 1,
+    marginTop: 6,
     borderColor: 'white',
     marginLeft: 3,
     marginRight: 3,

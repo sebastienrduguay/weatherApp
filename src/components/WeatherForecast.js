@@ -184,9 +184,10 @@ const styles = {
   }
 }
 
-const mapStateToProps = ({ weatherForecast }) => {
-    const { temperatures, humidities, pressures, lat, lon, tickValues, dataSelected, dataPointSelected } = weatherForecast;
-    return { temperatures, humidities, pressures, lat, lon, tickValues, dataSelected, dataPointSelected };
+const mapStateToProps = ({ weatherForecast, auth }) => {
+    const { temperatures, humidities, pressures, lat, lon, tickValues, dataSelected, dataPointSelected  } = weatherForecast;
+    const { user } = auth;
+    return { user, temperatures, humidities, pressures, lat, lon, tickValues, dataSelected, dataPointSelected };
 };
 
 export default connect(

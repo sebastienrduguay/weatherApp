@@ -5,7 +5,8 @@ import {
   PASSWORD_CHANGED,
   AUTH,
   AUTH_SUCCESS,
-  AUTH_FAIL
+  AUTH_FAIL,
+  LOGOUT
 } from './types';
 
 export const emailChanged = (value) => {
@@ -23,7 +24,6 @@ export const passwordChanged = (value) => {
 };
 
 export const authenticate = ({ email, password }) => {
-  console.log('authenticate', email, password );
   return (dispatch) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(user => loginUserSuccess(dispatch, user))
@@ -36,17 +36,20 @@ export const authenticate = ({ email, password }) => {
 };
 
 const loginUserFail = (dispatch) => {
-    console.log('fail');
     dispatch({
       type: AUTH_FAIL
     });
 };
 
 const loginUserSuccess = (dispatch, user) => {
-  console.log('success');
   dispatch({
     type: AUTH_SUCCESS, payload: user
   });
+  Actions.weatherSearch({ type: 'reset' });
+};
 
-  Actions.weatherSearch();
+export const logout = () => {
+  return {
+    type: LOGOUT
+  }
 };

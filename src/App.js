@@ -22,11 +22,11 @@ class App extends Component {
     firebase.initializeApp(config);
   }
   closeControlPanel = () => {
-
-  };
+    this._drawer.close()
+  }
   openControlPanel = () => {
-
-  };
+    this._drawer.open()
+  }
 
   render() {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
@@ -38,7 +38,7 @@ class App extends Component {
           type="overlay"
           disabled={false}
           captureGestures={true}
-          content={<ControlPanel/>}
+          content={<ControlPanel openDrawer={this.openControlPanel.bind(this)} closeDrawer={this.closeControlPanel.bind(this)}/>}
           tapToClose={true}
           openDrawerOffset={0.2} // 20% gap on the right side of drawer
           panCloseMask={0.2}

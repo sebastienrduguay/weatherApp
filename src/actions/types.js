@@ -18,3 +18,4 @@ export const PASSWORD_CHANGED = 'passwordChanged';
 export const AUTH = 'auth';
 export const AUTH_SUCCESS = 'authSuccess';
 export const AUTH_FAIL = 'authFail';
+export const LOGOUT = 'logout';
