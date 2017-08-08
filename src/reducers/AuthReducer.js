@@ -8,8 +8,8 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  email: '',
-  password: '',
+  email: 'test@test.com',
+  password: 'test123',
   error: '',
   user: null
 };

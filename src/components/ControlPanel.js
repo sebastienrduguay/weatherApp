@@ -62,7 +62,6 @@ class ControlPanel extends Component {
   }
 
   render() {
-    console.log(this);
     const { user } = this.props;
     let panel = (user !== null) ? LOGGED_CONTROL_PANEL : ANONYMUS_CONTROL_PANEL;
     let panelSelection = (user !== null) ? this.onLoggedControlPanelSelection.bind(this) : this.onAnonymusControlPanelSelection.bind(this);

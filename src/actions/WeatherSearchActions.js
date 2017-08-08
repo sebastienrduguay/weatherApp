@@ -35,7 +35,6 @@ export const fetchForcast = ({ city, country }) => {
       Actions.weatherShow({ data: response.data });
     })
     .catch(() => {
-      console.log('what????');
       fetchForecastFailed(dispatch)
     }
     );

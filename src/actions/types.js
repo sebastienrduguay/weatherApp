@@ -19,3 +19,7 @@ export const AUTH = 'auth';
 export const AUTH_SUCCESS = 'authSuccess';
 export const AUTH_FAIL = 'authFail';
 export const LOGOUT = 'logout';
+
+export const FORECAST_CREATE = 'forecastCreate';
+export const SAVE_FORECAST_SUCCESS = 'saveForecastSuccess';
+export const FETCH_FORECAST_HISTORY = 'fetchForcastHistory';

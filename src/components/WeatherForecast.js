@@ -13,6 +13,7 @@ import {
   dataSelectedChanged,
   dataPointChanged
 } from '../actions/WeatherShowActions';
+import { forecastCreate } from '../actions/WeatherHistoryActions';
 import { WeatherItem } from './WeatherItem'
 import { Card, CardSection, Button, ItemSelector, LineChart } from './common';
 
@@ -30,6 +31,10 @@ class WeatherForecast extends Component {
     const pressures = [];
     const tickValues = [];
     const interval = 3;
+    console.log(this.props);
+    if (this.props.user !== null) {
+      this.props.forecastCreate(data);
+    }
     this.props.latChanged(data.city.coord.lat);
     this.props.lonChanged(data.city.coord.lon);
     let hours = 0;
@@ -194,5 +199,5 @@ export default connect(
   mapStateToProps, {
   temperaturesChanged, humiditiesChanged, pressuresChanged,
   latChanged, lonChanged, tickValuesChanged, dataSelectedChanged,
-  dataPointChanged }
+  dataPointChanged, forecastCreate }
 )(WeatherForecast);

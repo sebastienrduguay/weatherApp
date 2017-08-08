@@ -51,5 +51,5 @@ const loginUserSuccess = (dispatch, user) => {
 export const logout = () => {
   return {
     type: LOGOUT
-  }
+  };
 };
