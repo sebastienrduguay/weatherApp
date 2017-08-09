@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, ImageBackground } from 'react-native';
 import { cityNameChanged, countryNameChanged, fetchForcast } from '../actions/WeatherSearchActions';
-import { Card, CardSection, Input, Button, Spinner } from './common';
+import { Input, Button, Spinner } from './common';
 import { errorTextStyle } from '../styles';
+import { formTopLevelContainerStyle } from '../styles/containerStyles';
 
 class WeatherSearchForm extends Component {
 
@@ -33,11 +34,11 @@ class WeatherSearchForm extends Component {
 
   render() {
     return (
-      <View style={{ height: 200, width: '100%', flexDirection: 'column', alignContent: 'flex-start', justifyContent: 'center'}}>
-        <View style={{ flex: 1, flexDirection: 'column'}}>
+      <View style={formTopLevelContainerStyle}>
+        <View style={{ flex: 1, flexDirection: 'column' }}>
           <ImageBackground
             source={require('../../assets/backgroundWeather.png')}
-            imageStyle={{ resizeMode: 'stretch'}}
+            imageStyle={{ resizeMode: 'stretch' }}
           />
           <View style={{ height: 100, marginTop: 15 }}>
             <Input
@@ -64,8 +65,6 @@ class WeatherSearchForm extends Component {
               Search
             </Button>
           </View>
-
-
         </View>
       </View>
     );

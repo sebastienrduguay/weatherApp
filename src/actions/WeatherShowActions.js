@@ -12,28 +12,28 @@ import {
 export const temperaturesChanged = (data) => {
   return {
     type: TEMPERATURES_CHANGED,
-    payload: [ ...data ]
+    payload: [...data]
   };
 };
 
 export const humiditiesChanged = (data) => {
   return {
     type: HUMIDITIES_CHANGED,
-    payload: [ ...data ]
+    payload: [...data]
   };
 };
 
 export const pressuresChanged = (data) => {
   return {
     type: PRESSURES_CHANGED,
-    payload: [ ...data ]
+    payload: [...data]
   };
 };
 
 export const tickValuesChanged = (data) => {
   return {
     type: TICK_VALUES_CHANGED,
-    payload: [ ...data ]
+    payload: [...data]
   };
 };
 

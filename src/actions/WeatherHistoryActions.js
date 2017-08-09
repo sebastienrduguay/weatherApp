@@ -5,7 +5,7 @@ import {
   SAVE_FORECAST_SUCCESS
 } from './types';
 
-export const forecastCreate = ( data ) => {
+export const forecastCreate = (data) => {
   console.log(data);
   const { currentUser } = firebase.auth();
   return (dispatch) => {

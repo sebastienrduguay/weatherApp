@@ -3,37 +3,33 @@ import firebase from 'firebase';
 import {
   EMAIL_CHANGED,
   PASSWORD_CHANGED,
-  AUTH,
   AUTH_SUCCESS,
   AUTH_FAIL,
   LOGOUT
 } from './types';
 
-export const emailChanged = (value) => {
-  return {
-    type: EMAIL_CHANGED,
-    payload: value
-  };
-};
+export const emailChanged = (value) => ({
+  type: EMAIL_CHANGED,
+  payload: value
+});
 
-export const passwordChanged = (value) => {
-  return {
+export const passwordChanged = (value) => ({
     type: PASSWORD_CHANGED,
     payload: value
-  };
-};
 
-export const authenticate = ({ email, password }) => {
-  return (dispatch) => {
+});
+
+export const authenticate = ({ email, password }) => (
+  (dispatch) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(user => loginUserSuccess(dispatch, user))
     .catch(() => {
       firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(user => loginUserSuccess(dispatch, user))
       .catch(() => loginUserFail(dispatch));
-    })
-  };
-};
+    });
+  }
+);
 
 const loginUserFail = (dispatch) => {
     dispatch({
@@ -48,8 +44,6 @@ const loginUserSuccess = (dispatch, user) => {
   Actions.weatherSearch({ type: 'reset' });
 };
 
-export const logout = () => {
-  return {
+export const logout = () => ({
     type: LOGOUT
-  };
-};
+});

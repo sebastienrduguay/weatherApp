@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, authenticate } from '../actions/AuthActions';
 import { Input, Button } from './common';
 import { errorTextStyle } from '../styles';
+import { formTopLevelContainerStyle, singleButtonBoxStyle } from '../styles/containerStyles';
 
 class Authenticate extends Component {
   onEmailChanged(value) {
@@ -16,17 +17,17 @@ class Authenticate extends Component {
 
   signUpRequested() {
     const { email, password } = this.props;
-    this.props.authenticate( { email, password } );
+    this.props.authenticate({ email, password });
   }
 
   render() {
     return (
-      <View style={{ height: 200, width: '100%', flexDirection: 'column', alignContent: 'flex-start', justifyContent: 'center'}}>
-        <View style={{ flex: 1, flexDirection: 'column'}}>
+      <View style={formTopLevelContainerStyle}>
+        <View style={{ flex: 1, flexDirection: 'column' }}>
 
           <ImageBackground
             source={require('../../assets/backgroundWeather.png')}
-            imageStyle={{ resizeMode: 'stretch'}}
+            imageStyle={{ resizeMode: 'stretch' }}
           />
 
           <View style={{ height: 100, marginTop: 15 }}>
@@ -49,7 +50,7 @@ class Authenticate extends Component {
             {this.props.error}
           </Text>
 
-          <View style={{ height: 35, paddingLeft: 15, paddingRight: 15 }}>
+          <View style={singleButtonBoxStyle}>
             <Button onPress={this.signUpRequested.bind(this)}>
               Login
             </Button>

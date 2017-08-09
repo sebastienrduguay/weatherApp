@@ -6,25 +6,30 @@ import {
   VictoryTheme,
   VictoryLabel,
   VictoryPortal,
-  VictoryAxis,
-  VictoryGroup,
-  VictoryCursorContainer
+  VictoryAxis
 } from 'victory-native';
-import Svg, { Circle } from 'react-native-svg';
+import {
+  titleStyle,
+  axisDateStyle,
+  axisTempStyle
+} from '../../styles/chartStyles';
 
-const LineChart = ({ data = [], xKey='x', yKey='y', width = 50, height = 50, title = '',
-  domainPadding = { x: 0, y: 15 }, tickValues = [], chartPadding = {left: 40, top:30, bottom:35, right:35 },
-  dependentAxisOrientation = 'left', titleColor = 'white', axisColor = 'white', tickLabelColor = 'white',
-  selectedData = 0
+const LineChart = ({
+  data = [],
+  xKey = 'x',
+  yKey = 'y',
+  width = 50,
+  height = 50, title = '',
+  domainPadding = { x: 0, y: 15 },
+  tickValues = [],
+  chartPadding = { left: 40, top: 30, bottom: 35, right: 35 },
+  dependentAxisOrientation = 'left',
+  titleColor = 'white',
 }) => {
-  if (data === []) return (<View/>)
-  const { titleStyle, axisDateStyle, axisTempStyle } = styles;
-  const startingTime = tickValues[0];
-  let currentDate = 0;
+  if (data === []) return (<View />);
   //console.log('linechartData:', data);
   return (
       <VictoryChart
-        standalone={true}
         theme={VictoryTheme.material}
         domainPadding={domainPadding}
         width={width}
@@ -34,11 +39,10 @@ const LineChart = ({ data = [], xKey='x', yKey='y', width = 50, height = 50, tit
 
       <VictoryAxis
         scale="time"
-        standalone={true}
         style={axisDateStyle}
         tickValues={tickValues}
         tickFormat={
-          (x) => { return (`${x.getHours()}h`);}
+          (x) => (`${x.getHours()}h`)
         }
       />
       <VictoryAxis
@@ -51,10 +55,10 @@ const LineChart = ({ data = [], xKey='x', yKey='y', width = 50, height = 50, tit
 
       <VictoryLabel
         textAnchor="middle"
-        style={{ stroke: titleColor, fill: titleColor, fontSize: "20px" }}
+        style={{ stroke: titleColor, fill: titleColor, fontSize: '20px' }}
         text={title}
-        x={width*0.5}
-        y={height*0.07}
+        x={width * 0.5}
+        y={height * 0.07}
       />
 
       <VictoryPortal>
@@ -66,7 +70,7 @@ const LineChart = ({ data = [], xKey='x', yKey='y', width = 50, height = 50, tit
           standalone={false}
           interpolation="natural"
           style={{
-            data: { stroke: "#c43a31", strokeWidth: 3 }
+            data: { stroke: '#c43a31', strokeWidth: 3 }
           }}
           data={data}
           x={xKey}
@@ -75,38 +79,6 @@ const LineChart = ({ data = [], xKey='x', yKey='y', width = 50, height = 50, tit
       </VictoryPortal>
     </VictoryChart>
   );
-};
-
-const styles = {
-  chartStyle: {
-    parent: {
-      borderWidth: 5,
-      borderColor: 'red'
-    }
-  },
-  titleStyle: {
-    fontSize: "20px",
-  },
-  axisDateStyle: {
-    axis: { stroke: "white", strokeWidth: 1},
-    tickLabels: { stroke: "white", fontSize: "8px" },
-    grid: { stroke: "darkgrey" },
-    ticks: {
-      size: (tick) => 4,
-      stroke: "white",
-      strokeWidth: 1
-    }
-  },
-  axisTempStyle: {
-    axis: { stroke: "white", strokeWidth: 1},
-    tickLabels: { stroke: "white", fontSize: "8px" },
-    grid: { stroke: "darkgrey" },
-    ticks: {
-      size: (tick) => 4,
-      stroke: "white",
-      strokeWidth: 1
-    }
-  }
 };
 
 export { LineChart };

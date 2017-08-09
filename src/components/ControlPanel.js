@@ -3,6 +3,10 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { logout } from '../actions/AuthActions';
+import {
+  controlPanelContainerStyle,
+  controlPanelItemStyle
+} from '../styles/controlPanelStyles';
 
 const ANONYMUS_CONTROL_PANEL = ['Login', 'Search', 'Help'];
 const LOGGED_CONTROL_PANEL = ['Logout', 'Search', 'History', 'Profile', 'Help'];
@@ -31,7 +35,7 @@ class ControlPanel extends Component {
         Actions.authenticate();
       break;
       case LOGGED_CONTROL_PANEL[1]:
-        Actions.weatherSearch
+        Actions.weatherSearch();
       break;
       case LOGGED_CONTROL_PANEL[2]://History
       break;
@@ -46,12 +50,11 @@ class ControlPanel extends Component {
   }
 
   renderControlPanelItems(controlPanelLabels, onSelection) {
-    const { controlPanelItemStyle } = styles;
     return controlPanelLabels.map((value, i) => {
       return (
         <TouchableOpacity
           key={i}
-          onPress={() => {onSelection(value)}}
+          onPress={() => { onSelection(value); }}
         >
           <View style={controlPanelItemStyle}>
             <Text>{value}</Text>
@@ -63,9 +66,12 @@ class ControlPanel extends Component {
 
   render() {
     const { user } = this.props;
-    let panel = (user !== null) ? LOGGED_CONTROL_PANEL : ANONYMUS_CONTROL_PANEL;
-    let panelSelection = (user !== null) ? this.onLoggedControlPanelSelection.bind(this) : this.onAnonymusControlPanelSelection.bind(this);
-    const { controlPanelContainerStyle } = styles;
+    const panel = (user !== null)
+      ? LOGGED_CONTROL_PANEL
+      : ANONYMUS_CONTROL_PANEL;
+    const panelSelection = (user !== null)
+      ? this.onLoggedControlPanelSelection.bind(this)
+      : this.onAnonymusControlPanelSelection.bind(this);
     return (
       <View style={controlPanelContainerStyle}>
       {this.renderControlPanelItems(panel, panelSelection)}
@@ -74,26 +80,7 @@ class ControlPanel extends Component {
   }
 }
 
-const styles = {
-  controlPanelItemStyle: {
-    justifyContent: 'center',
-    height: 30,
-    borderBottomWidth: 2,
-    borderBottomColor: '#068785',
-    paddingLeft: 30
-  },
-  controlPanelContainerStyle: {
-    borderTopWidth: 2,
-    borderTopColor: '#068785',
-    marginTop: 30,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2
-  }
-}
-
-const mapStateToProps = ({ auth, openDrawer, closeDrawer }) => {
+const mapStateToProps = ({ auth }) => {
   const { user } = auth;
   return { user };
 };

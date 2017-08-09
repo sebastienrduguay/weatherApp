@@ -1,4 +1,4 @@
-const CHART_SELECTIONS = [
+export const CHART_SELECTIONS = [
   'Temperature',
   'Humidity',
   'Pressure',
@@ -6,4 +6,4 @@ const CHART_SELECTIONS = [
   'Ground Level'
 ];
 
-export { CHART_SELECTIONS };
+export const TEMPERATURE_OFFSET = 273.15;
