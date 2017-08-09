@@ -4,8 +4,7 @@ import WeatherSearchForm from './components/WeatherSearchForm';
 import WeatherForecast from './components/WeatherForecast';
 import Authenticate from './components/Authenticate';
 
-const RouterComponent = () => {
-  return (
+const RouterComponent = () => (
     <Router sceneStyle={{ paddingTop: 65 }}>
       <Scene>
         <Scene initial key="authenticate" component={Authenticate} title="Login" />
@@ -14,6 +13,5 @@ const RouterComponent = () => {
       </Scene>
     </Router>
   );
-};
 
 export default RouterComponent;

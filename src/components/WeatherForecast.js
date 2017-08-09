@@ -30,6 +30,7 @@ import {
 
 const DATA_TITLES = ['Temprerature', 'Humidity', 'Pressure'];
 const DT_MULTIPLIER = 1000;
+const BACKGROUND_IMAGE = require('../../assets/backgroundWeather.png');
 
 class WeatherForecast extends Component {
   componentWillMount() {
@@ -106,7 +107,7 @@ class WeatherForecast extends Component {
       <View style={{ flex: 1 }}>
 
       <ImageBackground
-        source={require('../../assets/backgroundWeather.png')}
+        source={BACKGROUND_IMAGE}
         imageStyle={{ resizeMode: 'stretch' }}
       />
         <View style={chartContainerStyle}>

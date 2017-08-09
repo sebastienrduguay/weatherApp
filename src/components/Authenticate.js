@@ -6,7 +6,10 @@ import { Input, Button } from './common';
 import { errorTextStyle } from '../styles';
 import { formTopLevelContainerStyle, singleButtonBoxStyle } from '../styles/containerStyles';
 
+const BACKGROUND_IMAGE = require('../../assets/backgroundWeather.png');
+
 class Authenticate extends Component {
+
   onEmailChanged(value) {
     this.props.emailChanged(value);
   }
@@ -24,9 +27,8 @@ class Authenticate extends Component {
     return (
       <View style={formTopLevelContainerStyle}>
         <View style={{ flex: 1, flexDirection: 'column' }}>
-
           <ImageBackground
-            source={require('../../assets/backgroundWeather.png')}
+            source={BACKGROUND_IMAGE}
             imageStyle={{ resizeMode: 'stretch' }}
           />
 
@@ -55,7 +57,6 @@ class Authenticate extends Component {
               Login
             </Button>
           </View>
-
         </View>
       </View>
     );

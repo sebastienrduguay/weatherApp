@@ -3,11 +3,11 @@ import ReduxThunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import firebase from 'firebase';
 import { createStore, applyMiddleware } from 'redux';
+import Drawer from 'react-native-drawer';
 import reducers from './reducers';
 import Router from './Router';
-import Drawer from 'react-native-drawer';
-import { View, Text } from 'react-native';
 import ControlPanel from './components/ControlPanel';
+import { drawerStyle } from './styles/controlPanelStyles';
 
 class App extends Component {
   componentWillMount() {
@@ -22,10 +22,10 @@ class App extends Component {
     firebase.initializeApp(config);
   }
   closeControlPanel = () => {
-    this._drawer.close()
+    this.drawer.close();
   }
   openControlPanel = () => {
-    this._drawer.open()
+    this.drawer.open();
   }
 
   render() {
@@ -34,28 +34,28 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Drawer
-          ref={(ref) => this._drawer = ref}
+          ref={(ref) => this.drawer = ref}
           type="overlay"
           disabled={false}
-          captureGestures={true}
-          content={<ControlPanel openDrawer={this.openControlPanel.bind(this)} closeDrawer={this.closeControlPanel.bind(this)}/>}
-          tapToClose={true}
+          captureGestures
+          content={
+            <ControlPanel
+              openDrawer={this.openControlPanel.bind(this)}
+              closeDrawer={this.closeControlPanel.bind(this)}
+            />
+          }
+          tapToClose
           openDrawerOffset={0.2} // 20% gap on the right side of drawer
           panCloseMask={0.2}
           panOpenMask={0.01}
           closedDrawerOffset={-3}
-          styles={drawerStyles}
+          styles={drawerStyle}
         >
         <Router />
         </Drawer>
       </Provider>
     );
   }
-}
-
-const drawerStyles = {
-  drawer: { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3},
-  main: {paddingLeft: 3},
 }
 
 export default App;

@@ -20,6 +20,7 @@ export const countryNameChanged = (value) => ({
 export const fetchForcast = ({ city, country }) => {
   const API_KEY = 'db46bef43b86d6c356681b8d2c3812e8';
   const BASE_URL = 'http://api.openweathermap.org/data/2.5/forecast?q=';
+  console.log(`${BASE_URL}${city},${country}&APPID=${API_KEY}`);
   return (dispatch) => {
     axios.get(`${BASE_URL}${city},${country}&APPID=${API_KEY}`)
     .then((response) => {

@@ -6,6 +6,8 @@ import { Input, Button, Spinner } from './common';
 import { errorTextStyle } from '../styles';
 import { formTopLevelContainerStyle } from '../styles/containerStyles';
 
+const BACKGROUND_IMAGE = require('../../assets/backgroundWeather.png');
+
 class WeatherSearchForm extends Component {
 
   onCityNameChange(value) {
@@ -37,7 +39,7 @@ class WeatherSearchForm extends Component {
       <View style={formTopLevelContainerStyle}>
         <View style={{ flex: 1, flexDirection: 'column' }}>
           <ImageBackground
-            source={require('../../assets/backgroundWeather.png')}
+            source={BACKGROUND_IMAGE}
             imageStyle={{ resizeMode: 'stretch' }}
           />
           <View style={{ height: 100, marginTop: 15 }}>

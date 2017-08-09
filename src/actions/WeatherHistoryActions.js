@@ -16,3 +16,13 @@ export const forecastCreate = (data) => {
       });
   };
 };
+
+export const forecastHistoryFetch = () => {
+  const { currentUser } = firebase.auth();
+  return (dispatch) => {
+    firebase.database().ref(`/users/${currentUser.uid}/forecasts`)
+      .on('value', snapshot => {
+        dispatch({ type: FETCH_FORECAST_HISTORY, payload: snapshot.val() });
+      });
+  };
+};

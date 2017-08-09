@@ -7,3 +7,6 @@ export const CHART_SELECTIONS = [
 ];
 
 export const TEMPERATURE_OFFSET = 273.15;
+
+export const EMAIL_PLACEHOLDER = 'Username@gmail.com';
+export const PASSWORD_PLACEHOLDER = 'Password123';

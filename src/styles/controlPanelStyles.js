@@ -3,7 +3,8 @@ export const controlPanelItemStyle = {
   height: 30,
   borderBottomWidth: 2,
   borderBottomColor: '#068785',
-  paddingLeft: 30
+  paddingLeft: 30,
+  backgroundColor: 'white'
 };
 
 export const controlPanelContainerStyle = {
@@ -13,5 +14,18 @@ export const controlPanelContainerStyle = {
   shadowColor: '#000',
   shadowOffset: { width: 0, height: 4 },
   shadowOpacity: 0.1,
-  shadowRadius: 2
+  shadowRadius: 2,
+  backgroundColor: 'white'
+};
+
+export const drawerStyle = {
+  drawer: {
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 3,
+    backgroundColor: 'lightgrey'
+  },
+  main: {
+    paddingLeft: 3
+  }
 };

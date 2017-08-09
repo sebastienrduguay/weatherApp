@@ -27,7 +27,6 @@ const LineChart = ({
   titleColor = 'white',
 }) => {
   if (data === []) return (<View />);
-  //console.log('linechartData:', data);
   return (
       <VictoryChart
         theme={VictoryTheme.material}
@@ -55,7 +54,7 @@ const LineChart = ({
 
       <VictoryLabel
         textAnchor="middle"
-        style={{ stroke: titleColor, fill: titleColor, fontSize: '20px' }}
+        style={{ stroke: titleColor, fill: titleColor, ...titleStyle }}
         text={title}
         x={width * 0.5}
         y={height * 0.07}
