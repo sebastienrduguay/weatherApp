@@ -6,7 +6,6 @@ import {
 } from './types';
 
 export const forecastCreate = (data) => {
-  console.log(data);
   const { currentUser } = firebase.auth();
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/forecasts`)
@@ -17,7 +16,7 @@ export const forecastCreate = (data) => {
   };
 };
 
-export const forecastHistoryFetch = () => {
+export const weatherHistoryFetch = () => {
   const { currentUser } = firebase.auth();
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/forecasts`)

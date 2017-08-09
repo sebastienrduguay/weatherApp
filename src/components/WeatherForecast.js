@@ -43,7 +43,7 @@ class WeatherForecast extends Component {
     let hours = 0;
     let counter = 0;
 
-    if (this.props.user !== null) {
+    if (this.props.user !== null && this.props.send) {
       this.props.forecastCreate(data);
     }
 

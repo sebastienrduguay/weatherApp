@@ -15,10 +15,10 @@ class ControlPanel extends Component {
   onAnonymusControlPanelSelection(value) {
     switch (value) {
       case ANONYMUS_CONTROL_PANEL[0]:
-        Actions.authenticate();
+        Actions.authenticate({ type: 'reset' });
       break;
       case ANONYMUS_CONTROL_PANEL[1]:
-        Actions.weatherSearch();
+        Actions.weatherSearch({ type: 'reset' });
       break;
       case ANONYMUS_CONTROL_PANEL[2]://Help
       break;
@@ -32,12 +32,13 @@ class ControlPanel extends Component {
     switch (value) {
       case LOGGED_CONTROL_PANEL[0]://Logout
         this.props.logout();
-        Actions.authenticate();
+        Actions.authenticate({ type: 'reset' });
       break;
       case LOGGED_CONTROL_PANEL[1]:
-        Actions.weatherSearch();
+        Actions.weatherSearch({ type: 'reset' });
       break;
       case LOGGED_CONTROL_PANEL[2]://History
+        Actions.weatherHistory({ type: 'reset' });
       break;
       case LOGGED_CONTROL_PANEL[3]://Profile
       break;

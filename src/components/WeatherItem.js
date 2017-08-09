@@ -7,6 +7,7 @@ import { itemDescriptionContainerStyle } from '../styles/containerStyles';
 import { TEMPERATURE_OFFSET } from '../constants/constants';
 
 const WeatherItem = ({ data }) => {
+  console.log(data);
   const description = data.weather[0].description;
   const icon = data.weather[0].icon;
   const DIRECTIONS = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];

@@ -47,7 +47,7 @@ class App extends Component {
           tapToClose
           openDrawerOffset={0.2} // 20% gap on the right side of drawer
           panCloseMask={0.2}
-          panOpenMask={0.01}
+          panOpenMask={0.05}
           closedDrawerOffset={-3}
           styles={drawerStyle}
         >
