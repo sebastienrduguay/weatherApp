@@ -9,19 +9,15 @@ import {
   DATA_POINT_CHANGED
 } from './types';
 
-export const temperaturesChanged = (data) => {
-  return {
+export const temperaturesChanged = (data) => ({
     type: TEMPERATURES_CHANGED,
     payload: [...data]
-  };
-};
+});
 
-export const humiditiesChanged = (data) => {
-  return {
+export const humiditiesChanged = (data) => ({
     type: HUMIDITIES_CHANGED,
     payload: [...data]
-  };
-};
+});
 
 export const pressuresChanged = (data) => {
   return {

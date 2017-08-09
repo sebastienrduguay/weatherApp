@@ -1,8 +1,7 @@
 import firebase from 'firebase';
 import {
   FETCH_FORECAST_HISTORY,
-  FORECAST_CREATE,
-  SAVE_FORECAST_SUCCESS
+  FORECAST_CREATE
 } from './types';
 
 export const forecastCreate = (data) => {

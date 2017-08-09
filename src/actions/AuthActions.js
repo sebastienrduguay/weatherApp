@@ -44,6 +44,14 @@ const loginUserSuccess = (dispatch, user) => {
   Actions.weatherSearch({ type: 'reset' });
 };
 
-export const logout = () => ({
-    type: LOGOUT
-});
+export const logout = () => (
+  (dispatch) => {
+    firebase.auth().signOut()
+    .then(() => (
+      dispatch({
+        type: LOGOUT
+      })
+    ));
+  }
+
+);

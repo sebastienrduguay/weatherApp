@@ -51,8 +51,7 @@ class ControlPanel extends Component {
   }
 
   renderControlPanelItems(controlPanelLabels, onSelection) {
-    return controlPanelLabels.map((value, i) => {
-      return (
+    return controlPanelLabels.map((value, i) => (
         <TouchableOpacity
           key={i}
           onPress={() => { onSelection(value); }}
@@ -61,8 +60,8 @@ class ControlPanel extends Component {
             <Text>{value}</Text>
           </View>
         </TouchableOpacity>
-      );
-    });
+      )
+    );
   }
 
   render() {

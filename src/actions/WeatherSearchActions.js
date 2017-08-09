@@ -25,7 +25,7 @@ export const fetchForcast = ({ city, country }) => {
     axios.get(`${BASE_URL}${city},${country}&APPID=${API_KEY}`)
     .then((response) => {
       console.log(response);
-
+      fetchForcastSuccess(dispatch);
       Actions.weatherShow({ data: response.data, send: true });
     })
     .catch(() => {

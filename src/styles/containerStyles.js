@@ -51,3 +51,10 @@ export const itemDescriptionContainerStyle = {
   borderColor: 'white',
   padding: 5
 };
+
+export const itemHistoryContainerStyle = {
+  flexDirection: 'row',
+  height: 30,
+  borderColor: '#068785',
+  borderBottomWidth: 2
+};
