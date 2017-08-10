@@ -8,8 +8,8 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  email: 'test@test.com',
-  password: 'test123',
+  email: '',
+  password: '',
   error: '',
   user: null
 };
@@ -25,9 +25,9 @@ export default (state = INITIAL_STATE, action) => {
     case AUTH_SUCCESS:
       return { ...state, ...INITIAL_STATE, user: action.payload };
     case AUTH_FAIL:
-      return { ...state, error: 'Authentication Failed', password: '' }
+      return { ...state, error: 'Authentication Failed', password: '' };
     case LOGOUT:
-      return { ...state, ...INITIAL_STATE }
+      return { ...state, ...INITIAL_STATE };
     default:
       return state;
   }

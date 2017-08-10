@@ -7,8 +7,8 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  city: 'Montreal',
-  country: 'Quebec',
+  city: '',
+  country: '',
   error: '',
   loading: false
 };
@@ -20,7 +20,7 @@ export default (state = INITIAL_STATE, action) => {
   case COUNTRY_NAME_CHANGED:
     return { ...state, country: action.payload };
   case FETCH_FORECAST:
-    return { ...state, error: ''};
+    return { ...state, error: '' };
   case FETCH_FORECAST_FAIL:
     return { ...state, error: 'No Data Found' };
   case FETCH_FORECAST_SUCCESS:

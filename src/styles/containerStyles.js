@@ -31,8 +31,8 @@ export const chartContainerStyle = {
 export const buttonBoxStyle = {
   flex: 0.3,
   flexDirection: 'row',
-  marginTop: 10,
-  marginBottom: 15
+  marginTop: 5,
+  marginBottom: 10
 };
 
 export const mapContainerStyle = {

@@ -17,13 +17,13 @@ export const WeatherHistoryItem = ({ data, uid, onDelete }) => {
       <TouchableOpacity onPress={() => Actions.weatherShow({ data, send: false })}>
         <View style={{ flex: 1, flexDirection: 'row' }}>
             <Text
-              style={{ paddingLeft: 10, width: width(42), alignSelf: 'center' }}
+              style={{ fontSize: 11, paddingLeft: 10, width: width(42), alignSelf: 'center', backgroundColor: 'rgba(0,0,0,0)' }}
             >{city.name}</Text>
             <Text
-              style={{ width: width(16), alignSelf: 'center' }}
+              style={{ fontSize: 11, width: width(16), alignSelf: 'center', backgroundColor: 'rgba(0,0,0,0)' }}
             >{city.country}</Text>
             <Text
-              style={{ width: width(33), alignSelf: 'center' }}
+              style={{ fontSize: 11, width: width(36), alignSelf: 'center', backgroundColor: 'rgba(0,0,0,0)' }}
             >{new Date(list[0].dt * 1000).toDateString()}</Text>
         </View>
       </TouchableOpacity>

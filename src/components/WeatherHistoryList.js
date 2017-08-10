@@ -36,10 +36,17 @@ class WeatherHistoryList extends Component {
   render() {
     return (
       <View>
-        <View style={{ flexDirection: 'row', backgroundColor: 'lightgrey', borderColor: '#068785', borderTopWidth: 2 }}>
-          <Text style={{ padding: 10, width: width(42) }}>City</Text>
-          <Text style={{ paddingTop: 10, width: width(16) }}>Country</Text>
-          <Text style={{ padding: 10, width: width(33) }}>Date</Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            backgroundColor: 'lightgrey',
+            borderColor: '#068785',
+            borderTopWidth: 2
+          }}
+        >
+          <Text style={{ fontSize: 12, fontWeight: '600', backgroundColor: 'rgba(0,0,0,0)', padding: 10, width: width(42) }}>City</Text>
+          <Text style={{ fontSize: 12, fontWeight: '600', backgroundColor: 'rgba(0,0,0,0)', paddingTop: 10, width: width(16) }}>Country</Text>
+          <Text style={{ fontSize: 12, fontWeight: '600', backgroundColor: 'rgba(0,0,0,0)', padding: 10, width: width(33) }}>Date</Text>
         </View>
         <ListView
         style={{ borderColor: '#068785', borderTopWidth: 20, borderBottomWidth: 18 }}
@@ -53,9 +60,9 @@ class WeatherHistoryList extends Component {
 }
 
 const mapStateToProps = state => {
-  const weatherHistory = _.map(state.weatherHistory, (val, uid) => {
-    return { ...val, uid };
-  });
+  const weatherHistory = _.map(state.weatherHistory, (val, uid) => (
+     { ...val, uid }
+  ));
   return { weatherHistory };
 };
 

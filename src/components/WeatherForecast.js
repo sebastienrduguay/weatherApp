@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, ImageBackground } from 'react-native';
 import MapView from 'react-native-maps';
 import { connect } from 'react-redux';
-import { width } from 'react-native-dimension';
+import { width, height } from 'react-native-dimension';
 import { forecastCreate } from '../actions/WeatherHistoryActions';
 import { WeatherItem } from './WeatherItem';
 import { TEMPERATURE_OFFSET } from '../constants/constants';
@@ -117,7 +117,7 @@ class WeatherForecast extends Component {
             xKey={'x'}
             yKey={'y'}
             width={width(100)}
-            height={200}
+            height={height(30)}
             title={DATA_TITLES[dataSelected]}
             padding={15}
             tickValues={tickValues}
@@ -130,6 +130,7 @@ class WeatherForecast extends Component {
             onNextDataPoint={this.onNextDataPoint.bind(this)}
             showPrevious={dataPointSelected !== 0}
             showNext={dataPointSelected !== data.list.length - 1}
+            height={height(30)}
           >
             <WeatherItem data={data.list[dataPointSelected]} />
           </ItemSelector>
@@ -138,7 +139,7 @@ class WeatherForecast extends Component {
         <View style={mapContainerStyle}>
           <MapView
             width={width(96)}
-            height={200}
+            height={height(25)}
             provider={null}
             mapType={'hybrid'}
             initialRegion={{
@@ -151,7 +152,7 @@ class WeatherForecast extends Component {
           />
         </View>
 
-        <View style={buttonBoxStyle} >
+        <View style={{ height: height(10), ...buttonBoxStyle }} >
           <Button onPress={this.onTemperatureButtonPressed.bind(this)} >
             {DATA_TITLES[0]}
           </Button>
