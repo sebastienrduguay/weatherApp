@@ -17,18 +17,25 @@ export const WeatherHistoryItem = ({ data, uid, onDelete }) => {
       <TouchableOpacity onPress={() => Actions.weatherShow({ data, send: false })}>
         <View style={{ flex: 1, flexDirection: 'row' }}>
             <Text
-              style={{ paddingLeft: 10, width: width(38), alignSelf: 'center' }}
+              style={{ paddingLeft: 10, width: width(42), alignSelf: 'center' }}
             >{city.name}</Text>
             <Text
-              style={{ width: width(8), alignSelf: 'center' }}
+              style={{ width: width(16), alignSelf: 'center' }}
             >{city.country}</Text>
             <Text
-              style={{ width: width(47), alignSelf: 'center' }}
-            >{list[0].dt_txt}</Text>
+              style={{ width: width(33), alignSelf: 'center' }}
+            >{new Date(list[0].dt * 1000).toDateString()}</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity >
-        <View style={{ width: width(8), height: 30, justifyContent: 'center' }}>
+      <TouchableOpacity>
+        <View
+          style={{
+            width: width(8),
+            height: 30,
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
           <Icon
             style={{ paddingRight: 10, alignSelf: 'center' }}
             name={'delete'}

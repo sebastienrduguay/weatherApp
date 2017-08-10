@@ -6,7 +6,8 @@ import { Actions } from 'react-native-router-flux';
 import { logout } from '../actions/AuthActions';
 import {
   controlPanelContainerStyle,
-  controlPanelItemStyle
+  controlPanelItemStyle,
+  controlPanelTimeContainerStyle
 } from '../styles/controlPanelStyles';
 import { itemIconStyle } from '../styles/iconStyles';
 
@@ -89,9 +90,16 @@ class ControlPanel extends Component {
     const panelSelection = (user !== null)
       ? this.onLoggedControlPanelSelection.bind(this)
       : this.onAnonymusControlPanelSelection.bind(this);
+    const date = new Date();
     return (
-      <View style={controlPanelContainerStyle}>
-      {this.renderControlPanelItems(panel, panelSelection, icons)}
+      <View>
+        <View style={controlPanelTimeContainerStyle}>
+          <Text>{date.toDateString()}</Text>
+          <Text>{date.toTimeString()}</Text>
+        </View>
+        <View style={controlPanelContainerStyle}>
+          {this.renderControlPanelItems(panel, panelSelection, icons)}
+        </View>
       </View>
     );
   }

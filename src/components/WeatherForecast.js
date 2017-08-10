@@ -46,7 +46,8 @@ class WeatherForecast extends Component {
     if (this.props.user !== null && this.props.send) {
       this.props.forecastCreate(data);
     }
-
+    this.props.dataPointChanged(0);
+    this.props.dataSelectedChanged(0);
     this.props.latChanged(data.city.coord.lat);
     this.props.lonChanged(data.city.coord.lon);
     list.forEach((element) => {

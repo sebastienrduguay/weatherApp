@@ -4,15 +4,14 @@ export const controlPanelItemStyle = {
   height: 30,
   borderBottomWidth: 2,
   borderBottomColor: '#068785',
-  paddingLeft: 30,
+  paddingLeft: 10,
   backgroundColor: 'white',
   flexDirection: 'row'
 };
 
 export const controlPanelContainerStyle = {
-  borderTopWidth: 2,
+  borderTopWidth: 10,
   borderTopColor: '#068785',
-  marginTop: 30,
   shadowColor: '#000',
   shadowOffset: { width: 0, height: 4 },
   shadowOpacity: 0.1,
@@ -30,4 +29,13 @@ export const drawerStyle = {
   main: {
     paddingLeft: 3
   }
+};
+
+export const controlPanelTimeContainerStyle = {
+  marginTop: 25,
+  alignItems: 'center',
+  borderTopWidth: 2,
+  borderTopColor: '#068785',
+  backgroundColor: 'white',
+  padding: 10
 };
