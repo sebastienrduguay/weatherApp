@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
 import { connect } from 'react-redux';
-import { weatherHistoryFetch } from '../actions/WeatherHistoryActions';
+import { weatherHistoryFetch, weatherHistoryDelete } from '../actions/WeatherHistoryActions';
 import { WeatherHistoryItem } from './WeatherHistoryItem';
 
 class WeatherHistoryList extends Component {
@@ -23,7 +23,13 @@ class WeatherHistoryList extends Component {
   }
 
   renderRow(weatherData) {
-    return <WeatherHistoryItem data={weatherData.data} />;
+    return (
+      <WeatherHistoryItem
+        data={weatherData.data}
+        uid={weatherData.uid}
+        onDelete={this.props.weatherHistoryDelete.bind(this)}
+      />
+    );
   }
 
   render() {
@@ -32,7 +38,7 @@ class WeatherHistoryList extends Component {
       style={{ borderColor: '#068785', borderTopWidth: 20, borderBottomWidth: 18 }}
         enableEmptySections
         dataSource={this.dataSource}
-        renderRow={this.renderRow}
+        renderRow={this.renderRow.bind(this)}
       />
     );
   }
@@ -47,5 +53,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { weatherHistoryFetch }
+  { weatherHistoryFetch, weatherHistoryDelete }
 )(WeatherHistoryList);

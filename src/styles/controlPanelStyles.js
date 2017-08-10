@@ -1,10 +1,12 @@
 export const controlPanelItemStyle = {
   justifyContent: 'center',
+  alignItems: 'center',
   height: 30,
   borderBottomWidth: 2,
   borderBottomColor: '#068785',
   paddingLeft: 30,
-  backgroundColor: 'white'
+  backgroundColor: 'white',
+  flexDirection: 'row'
 };
 
 export const controlPanelContainerStyle = {
