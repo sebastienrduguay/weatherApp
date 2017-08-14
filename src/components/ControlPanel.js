@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { height } from 'react-native-dimension';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
@@ -63,7 +64,7 @@ class ControlPanel extends Component {
           key={i}
           onPress={() => { onSelection(value); }}
         >
-          <View style={controlPanelItemStyle}>
+          <View style={{ ...controlPanelItemStyle, height: height(5) }}>
             <View style={{ flex: 0.2 }}>
               <Icon
                 name={icons[i]}

@@ -109,7 +109,7 @@ class WeatherForecast extends Component {
 
       <ImageBackground
         source={BACKGROUND_IMAGE}
-        imageStyle={{ resizeMode: 'stretch' }}
+        imageStyle={{ width: width(100), height: height(100) }}
       />
         <View style={chartContainerStyle}>
           <LineChart
@@ -139,7 +139,7 @@ class WeatherForecast extends Component {
         <View style={mapContainerStyle}>
           <MapView
             width={width(96)}
-            height={height(24)}
+            height={height(27)}
             provider={null}
             mapType={'hybrid'}
             initialRegion={{

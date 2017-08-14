@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, ImageBackground } from 'react-native';
+import { width, height } from 'react-native-dimension';
 import { cityNameChanged, countryNameChanged, fetchForcast } from '../actions/WeatherSearchActions';
 import { Input, Button, Spinner } from './common';
 import { errorTextStyle } from '../styles';
@@ -40,7 +41,7 @@ class WeatherSearchForm extends Component {
         <View style={{ flex: 1, flexDirection: 'column' }}>
           <ImageBackground
             source={BACKGROUND_IMAGE}
-            imageStyle={{ resizeMode: 'stretch' }}
+            imageStyle={{ width: width(100), height: height(100) }}
           />
           <View style={{ height: 100, marginTop: 15 }}>
             <Input

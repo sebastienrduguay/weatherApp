@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
+import { width, height } from 'react-native-dimension';
 import { emailChanged, passwordChanged, authenticate } from '../actions/AuthActions';
 import { Input, Button } from './common';
 import { errorTextStyle } from '../styles';
@@ -29,7 +30,7 @@ class Authenticate extends Component {
         <View style={{ flex: 1, flexDirection: 'column' }}>
           <ImageBackground
             source={BACKGROUND_IMAGE}
-            imageStyle={{ resizeMode: 'stretch' }}
+            imageStyle={{ height: height(100), width: width(100) }}
           />
 
           <View style={{ height: 100, marginTop: 15 }}>

@@ -1,7 +1,6 @@
 export const controlPanelItemStyle = {
   justifyContent: 'center',
   alignItems: 'center',
-  height: 30,
   borderBottomWidth: 2,
   borderBottomColor: '#068785',
   paddingLeft: 10,
