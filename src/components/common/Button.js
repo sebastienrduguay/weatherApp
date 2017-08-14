@@ -16,10 +16,10 @@ const styles = {
   textStyle: {
     alignSelf: 'center',
     color: 'white',
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: '600',
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
     backgroundColor: 'rgba(0,0,0,0)'
   },
   buttonStyle: {

@@ -62,7 +62,7 @@ class WeatherHistoryList extends Component {
 const mapStateToProps = state => {
   const weatherHistory = _.map(state.weatherHistory, (val, uid) => (
      { ...val, uid }
-  ));
+  )).reverse();
   return { weatherHistory };
 };
 

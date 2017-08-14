@@ -37,7 +37,7 @@ export const WeatherHistoryItem = ({ data, uid, onDelete }) => {
           }}
         >
           <Icon
-            style={{ paddingRight: 10, alignSelf: 'center' }}
+            style={{ paddingRight: 10, alignSelf: 'center', backgroundColor: 'rgba(0,0,0,0)' }}
             name={'delete'}
             size={ICON_SIZE}
             color={ICON_COLOR}

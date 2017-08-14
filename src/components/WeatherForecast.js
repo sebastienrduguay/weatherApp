@@ -105,7 +105,7 @@ class WeatherForecast extends Component {
     const { data } = this.props;
     const { dataSelected, tickValues, dataPointSelected } = this.props;
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, justifyContent: 'space-between' }}>
 
       <ImageBackground
         source={BACKGROUND_IMAGE}
@@ -130,7 +130,7 @@ class WeatherForecast extends Component {
             onNextDataPoint={this.onNextDataPoint.bind(this)}
             showPrevious={dataPointSelected !== 0}
             showNext={dataPointSelected !== data.list.length - 1}
-            height={height(30)}
+            height={height(34)}
           >
             <WeatherItem data={data.list[dataPointSelected]} />
           </ItemSelector>
@@ -139,7 +139,7 @@ class WeatherForecast extends Component {
         <View style={mapContainerStyle}>
           <MapView
             width={width(96)}
-            height={height(25)}
+            height={height(24)}
             provider={null}
             mapType={'hybrid'}
             initialRegion={{

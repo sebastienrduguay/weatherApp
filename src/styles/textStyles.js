@@ -1,3 +1,5 @@
 export const dataPointTextStyle = {
-    color: 'white'
+    color: 'white',
+    fontSize: 11,
+    backgroundColor: 'rgba(0,0,0,0)'
 };

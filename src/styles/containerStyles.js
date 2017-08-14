@@ -15,8 +15,8 @@ export const singleButtonBoxStyle = {
 export const itemSelectorContainerStyle = {
   flex: 0.8,
   justifyContent: 'center',
-  marginTop: 15,
-  marginLeft: 10
+  marginTop: 10,
+  marginBottom: 5
 };
 
 export const chartContainerStyle = {
@@ -31,7 +31,6 @@ export const chartContainerStyle = {
 export const buttonBoxStyle = {
   flex: 0.3,
   flexDirection: 'row',
-  marginTop: 5,
   marginBottom: 10
 };
 
@@ -45,6 +44,8 @@ export const mapContainerStyle = {
 
 export const itemDescriptionContainerStyle = {
   backgroundColor: '#068785',
+  alignItems: 'flex-start',
+  justifyContent: 'center',
   flex: 1,
   borderWidth: 1,
   borderRadius: 5,
